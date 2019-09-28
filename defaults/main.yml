@@ -1,2 +1,5 @@
 ---
-# defaults file for docker_centos
+docker_edition: docker-ce
+docker_repo: https://download.docker.com/linux/centos/{{ docker_edition }}.repo
+repos_path: /etc/yum.repos.d
+docker_package_state: present

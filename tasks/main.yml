@@ -1,2 +1,11 @@
 ---
-# tasks file for docker_centos
+- name: Add docker repository
+  get_url:
+    url: "{{ docker_repo }}"
+    dest: "{{ repos_path }}/{{ docker_edition }}.repo"
+
+- name: Install docker
+  yum:
+    name: "{{ docker_edition }}"
+    state: "{{ docker_package_state }}"
+  notify: Restart docker

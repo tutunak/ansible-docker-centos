@@ -1,2 +1,5 @@
 ---
-# handlers file for docker_centos
+- name: Restart docker
+  systemd:
+    name: docker
+    state: restarted

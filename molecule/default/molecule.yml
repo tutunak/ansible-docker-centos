@@ -7,7 +7,13 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: centos:7
+    image: centos/systemd
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    tmpfs:
+      - /run
+    override_command: False
 provisioner:
   name: ansible
   lint:
